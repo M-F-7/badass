@@ -6,6 +6,10 @@ ip addr add 10.1.1.5/30 dev eth1 && ip link set eth1 up
 ip addr add 10.1.1.9/30 dev eth2 && ip link set eth2 up
 ip addr add 1.1.1.1/32 dev lo   && ip link set lo up
 
+kill -9 $(cat /var/run/frr/*.pid 2>/dev/null) 2>/dev/null
+rm -f /var/run/frr/*.pid
+sleep 1
+
 cat > /etc/frr/frr.conf <<'EOF'
 hostname wil-1
 router ospf

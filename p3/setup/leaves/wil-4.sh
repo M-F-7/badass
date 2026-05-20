@@ -10,6 +10,11 @@ ip link set vxlan10 mtu 1450 master br0 up
 ip link set br0 mtu 1450 up
 ip link set eth0 master br0 up
 
+
+kill -9 $(cat /var/run/frr/*.pid 2>/dev/null) 2>/dev/null
+rm -f /var/run/frr/*.pid
+sleep 1
+
 cat > /etc/frr/frr.conf <<'EOF'
 hostname wil-4
 router ospf

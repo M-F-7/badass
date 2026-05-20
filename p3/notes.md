@@ -1,0 +1,4 @@
+Dans ta config BGP tu as mis no bgp default ipv4-unicast, ce qui désactive la famille IPv4 unicast. C'est exactement ce qu'il faut faire pour la P3 — tu n'as pas besoin d'échanger des routes IPv4 via BGP parce que c'est OSPF qui s'en charge (les loopbacks 1.1.1.x et les liens entre routeurs sont annoncés par OSPF).
+
+BGP ne sert ici qu'à transporter les routes EVPN (L2VPN), d'où le fait que tu ne vois que le bloc L2VPN EVPN Summary et pas de IPv4 Unicast Summary.Dans ta config BGP tu as mis no bgp default ipv4-unicast, ce qui désactive la famille IPv4 unicast. C'est exactement ce qu'il faut faire pour la P3 — tu n'as pas besoin d'échanger des routes IPv4 via BGP parce que c'est OSPF qui s'en charge (les loopbacks 1.1.1.x et les liens entre routeurs sont annoncés par OSPF).
+BGP ne sert ici qu'à transporter les routes EVPN (L2VPN), d'où le fait que tu ne vois que le bloc L2VPN EVPN Summary et pas de IPv4 Unicast Summary.

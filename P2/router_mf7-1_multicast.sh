@@ -12,6 +12,8 @@ ip link set eth0 up
 ip link set eth1 up
 ip addr add 10.0.0.1/24 dev eth0
 
+ip addr add 30.1.1.3/24 dev eth1
+
 ip link add br0 type bridge
 ip link set br0 up
 ip link set eth1 master br0
